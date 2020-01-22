@@ -1,5 +1,4 @@
 # Simple weather app
----
 ## Tasks
 - [ ] build functional components
 - [ ] Get users location - resolve ip 
@@ -14,7 +13,7 @@
 - Axios for get
 - possiable for IP resovle?
 - simple weather api that has no silly restrictions for use for free
-
+# 
 # This will show
 
 - use of an API to fetch data
