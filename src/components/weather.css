@@ -1,0 +1,8 @@
+input [type=text]{
+    width: 100px;
+    
+}
+
+.weather {
+    background-color: red;
+}

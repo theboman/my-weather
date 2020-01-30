@@ -1,8 +1,8 @@
-# Simple weather app
+# Simple React weather app
 ## Tasks
 - [ ] build functional components
 - [ ] Get users location - resolve ip 
-- [ ] Choose API
+- [ ] Implment API https://openweathermap.org/
 - [ ] intergrate weather API
 
 ---
@@ -11,7 +11,7 @@
 - React
   - React Hooks
 - Axios for get
-- possiable for IP resovle?
+- possiable NPM modules for IP resovle?
 - simple weather api that has no silly restrictions for use for free
 # 
 # This will show
