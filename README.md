@@ -1,7 +1,9 @@
 # Simple React weather app
 ## Tasks
-- [ ] build functional components
-- [ ] Get users location - resolve ip 
+- [ ] build functional components - using hooks
+- [ ] determin geolocation using users IP address?
+- [ ] ask user for input for city or lat/long
+- [ ] build reusable forms 
 - [ ] Implment API https://openweathermap.org/
 - [ ] intergrate weather API
 
