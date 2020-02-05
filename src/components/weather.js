@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './Weather.module.css';
 
 function Weather() {
-  const [weatherInfo, setWeatherInfo] = useState({});
   const [locationData, setLocationData] = useState({
     city: '',
     zipcode: '',
     lat: '',
-    long: ''
+    lon: ''
   });
 
   const callbackValidate = (name, value) => {
@@ -17,6 +16,9 @@ function Weather() {
     switch (name) {
       case (name = 'city'):
         console.log('you have a city input! ');
+        if ((value = 'la')) {
+          console.log('your awesome to live in la');
+        }
         break;
 
       case (name = 'zipcode'):
@@ -27,7 +29,7 @@ function Weather() {
         console.log('you have a latitude! ');
         break;
 
-      case (name = 'long'):
+      case (name = 'lon'):
         console.log('you have a longitude! ');
         break;
 
@@ -53,7 +55,7 @@ function Weather() {
       'A name was submitted: ' +
         locationData.city +
         locationData.lat +
-        locationData.long
+        locationData.lon
     );
   };
 
