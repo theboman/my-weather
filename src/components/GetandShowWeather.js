@@ -8,8 +8,9 @@ const params = {
   APPID: 'b11492f1aa8188079043aa8f50e9f9cd',
   q: 'London'
 };
-const GetandShowWeather = props => {
-  console.dir('this is locationdata:', props);
+const GetandShowWeather = ({ locationData }) => {
+  console.log('Location Data:');
+  console.dir(locationData);
   const [weatherInfo, setWeatherInfo] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
