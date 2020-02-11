@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Weather.module.css';
+import GetandShowWeather from './GetandShowWeather';
 
 function Weather() {
+  const [submitted, setSubmission] = useState(false);
   const [locationData, setLocationData] = useState({
     city: '',
     zipcode: '',
@@ -51,6 +53,7 @@ function Weather() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setSubmission(true);
     alert(
       'A name was submitted: ' +
         locationData.city +
@@ -102,6 +105,7 @@ function Weather() {
         <br></br>
         <input type="submit" value="Submit" />
       </form>
+      <GetandShowWeather locationData={submitted ? locationData : ''} />
     </div>
   );
 }
