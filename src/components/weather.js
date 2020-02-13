@@ -54,12 +54,12 @@ function Weather() {
   const handleSubmit = e => {
     e.preventDefault();
     setSubmission(true);
-    alert(
-      'A name was submitted: ' +
-        locationData.city +
-        locationData.lat +
-        locationData.lon
-    );
+    // alert(
+    //   'A name was submitted: ' +
+    //     locationData.city +
+    //     locationData.lat +
+    //     locationData.lon
+    // );
   };
 
   return (
