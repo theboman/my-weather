@@ -8,9 +8,11 @@ const params = {
   APPID: 'b11492f1aa8188079043aa8f50e9f9cd',
   q: 'London'
 };
-const GetandShowWeather = ({ locationData }) => {
-  // console.log('Location Data:');
-  // console.dir(locationData);
+
+// need to set the params dynamically ...params add key and value for field entry
+
+const GetandShowWeather = props => {
+  console.dir('this is locationdata:', props);
   const [weatherInfo, setWeatherInfo] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -23,8 +25,8 @@ const GetandShowWeather = ({ locationData }) => {
     };
     fetchData();
   }, []);
-  // console.log('this is the response state: ', weatherInfo);
-  // console.log('loading is:', loading);
+  console.log('this is the response state: ', weatherInfo);
+  console.log('loading is:', loading);
 
   return (
     <div>

@@ -28,6 +28,12 @@
 - Might get into some cool animations using some React animation library, oh yeah now we are getting crazy. 
 - Spend some time in Figma designing something nice and implementing this
 
+### 
+component overview
+1)Weather Form takes input - validates
+2)Get Data Axios asych
+3)Display results
+
 
 
 
