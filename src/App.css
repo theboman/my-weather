@@ -3,7 +3,6 @@
   --main-input-box-color-hover:rgb(181, 228, 243);
 }
 body {
-    /* background: lightgrey; */
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     letter-spacing: -0.018em;
@@ -16,18 +15,13 @@ body {
 
 .input_container {
     display: flex;
-
     width: 680px;
     height: 65px;
     background-color: white;
 }
 
 .input_container div {
- 
     border-radius: 5px;
-    /* font-size: .8em; */
-    /* background-color: #86c1d9; */
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .divider {
@@ -48,9 +42,7 @@ body {
 .input_group_city {
     background-color: var(--main-input-box-color);
     flex-basis: 185px;
-    /* padding: 40px 20px; */
 }
-
 
 .title {
   font-size: 12px;
@@ -64,9 +56,6 @@ body {
   color:red;
 }
 
-.error_lat_lon {
-  padding: 2px 5px;
-}
 
 .input_group_zip {
     background: var(--main-input-box-color);
