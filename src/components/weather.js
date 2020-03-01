@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './Weather.module.css';
 import GetandShowWeather from './GetandShowWeather';
 
+// needed to add the correct case
 function Weather() {
   const [submitted, setSubmission] = useState(false);
   const [formError, setFormError] = useState({
