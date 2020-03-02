@@ -3,7 +3,7 @@ import axios from 'axios';
 import Spinner from './Spinner/Spinner';
 import WeatherResults from './WeatherResults';
 
-const url = 'http://api.openweathermap.org/data/2.5/forecast';
+const url = 'https://api.openweathermap.org/data/2.5/forecast';
 const params = {
   APPID: 'b11492f1aa8188079043aa8f50e9f9cd',
   q: 'London'
