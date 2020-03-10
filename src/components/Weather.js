@@ -7,30 +7,51 @@ import GetandShowWeather from './GetandShowWeather';
 
 function Weather() {
   const [submitted, setSubmission] = useState(false);
+  //const [valid, setValid] = useState(true);
   const [formError, setFormError] = useState({
     errorForm: '',
     errorCity: '',
-    errorZipcode: '',
-    errorLat: '',
-    errorLon: ''
+    errorZip: '',
+    errorLatLon: ''
   });
 
   const [locationData, setLocationData] = useState({
-    city: '',
-    zipcode: '',
+    q: '',
+    zip: '',
     lat: '',
     lon: ''
   });
+
+  // const [locationData, setLocationData] = useState({});
+
+  let enabledCity = true;
+  let enabledZip = false;
+  let enabledLatLon = true;
+  // don't think I need two error fields for lat/lon can be one only displays one error to user
+
+  const formValid = (formError, locationData) => {
+    let valid = true;
+
+    // validate form errors being empty
+    Object.values(formError).forEach(val => {
+      val.length > 0 && (valid = false);
+    });
+
+    // validate the form was filled out
+    Object.values(locationData).forEach(val => {
+      val.length > 0 && (valid = false);
+    });
+
+    return valid;
+  };
 
   const callbackValidate = (name, value) => {
     const regex_StringOnly = /[^a-z\s]/gim;
     const regex_IntOnly = /[^0-9]/gm;
     const regex_NumOnly = /[^0-9./+-]/gm;
-    //const regex_NumOnly5digits = '/';
-    //const regex_NumOnlyFloat = /^[-+]?\d*\.?\d*$/g;
 
     switch (name) {
-      case 'city':
+      case 'q':
         if (regex_StringOnly.test(value)) {
           setFormError({
             ...formError,
@@ -39,20 +60,24 @@ function Weather() {
         } else {
           setFormError({ ...formError, errorCity: '' });
         }
+        if (value.length > 0) {
+          enabledLatLon = false;
+          enabledZip = false;
+        }
         break;
 
-      case 'zipcode':
+      case 'zip':
         if (regex_IntOnly.test(value)) {
-          setFormError({ ...formError, errorZipcode: 'Please only 0-9!' });
+          setFormError({ ...formError, errorZip: 'Please only 0-9!' });
         } else {
-          setFormError({ ...formError, errorZipcode: '' });
+          setFormError({ ...formError, errorZip: '' });
         }
 
         break;
 
       case 'lat':
         if (regex_NumOnly.test(value)) {
-          setFormError({ ...formError, errorLat: 'Please only 0-9!' });
+          setFormError({ ...formError, errorLatLon: 'Please only 0-9!' });
         } else if (value > 180 || value < -180) {
           console.log('Please enter a value between 180 and -180!');
           setFormError({
@@ -60,21 +85,21 @@ function Weather() {
             errorLat: 'Please enter a value between 180 and -180!'
           });
         } else {
-          setFormError({ ...formError, errorLat: '' });
+          setFormError({ ...formError, errorLatLon: '' });
         }
         break;
 
       case 'lon':
         if (regex_NumOnly.test(value)) {
-          setFormError({ ...formError, errorLon: 'Please only 0-9!' });
+          setFormError({ ...formError, errorLatLon: 'Please only 0-9!' });
         } else if (value > 180 || value < -180) {
           console.log('Please enter a value between 180 and -180!');
           setFormError({
             ...formError,
-            errorLon: 'Please enter a value between 180 and -180!'
+            errorLatLon: 'Please enter a value between 180 and -180!'
           });
         } else {
-          setFormError({ ...formError, errorLon: '' });
+          setFormError({ ...formError, errorLatLon: '' });
         }
         break;
 
@@ -97,13 +122,9 @@ function Weather() {
   const handleSubmit = e => {
     e.preventDefault();
     setSubmission(true);
-    alert(
-      `These are the inputs:    
-      City: ${locationData.city} 
-      Zip: ${locationData.zipcode}
-      Lat: ${locationData.lat}
-      Long: ${locationData.lon}`
-    );
+    //else {
+    //   console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
+    // }
   };
 
   return (
@@ -117,8 +138,8 @@ function Weather() {
               <input
                 className="input_city"
                 type="text"
-                name="city"
-                value={locationData.city}
+                name="q"
+                value={locationData.q || ''}
                 onChange={handleLocationInput}
               ></input>
               <div className="error_message">{formError.errorCity}</div>
@@ -131,11 +152,13 @@ function Weather() {
               <input
                 className="input_zip"
                 type="text"
-                name="zipcode"
-                value={locationData.zipcode}
+                // maxLength="5"
+                name="zip"
+                value={locationData.zip || ''}
                 onChange={handleLocationInput}
+                // disabled={enabledZip ? 'disabled' : ''}
               ></input>
-              <div className="error_message">{formError.errorZipcode}</div>
+              <div className="error_message">{formError.errorZip}</div>
             </div>
 
             <div className="divider">|</div>
@@ -148,7 +171,7 @@ function Weather() {
                     className="narrow"
                     type="text"
                     name="lat"
-                    value={locationData.lat}
+                    value={locationData.lat || ''}
                     onChange={handleLocationInput}
                   ></input>
                 </div>
@@ -158,12 +181,12 @@ function Weather() {
                     className="narrow"
                     type="text"
                     name="lon"
-                    value={locationData.lon}
+                    value={locationData.lon || ''}
                     onChange={handleLocationInput}
                   ></input>
                 </div>
               </div>
-              <div className="error_message">{formError.errorLat}</div>
+              <div className="error_message">{formError.errorLatLon}</div>
             </div>
 
             <div className="divider">|</div>
@@ -172,7 +195,8 @@ function Weather() {
               <input className="submit" type="submit" value="SUBMIT"></input>
             </div>
           </form>
-          <GetandShowWeather locationData={submitted ? locationData : ''} />
+          {submitted ? <GetandShowWeather locationData={locationData} /> : ''}
+          {/* <GetandShowWeather locationData={submitted ? locationData : ''} /> */}
         </div>
         <div className="side_right"></div>
       </div>
