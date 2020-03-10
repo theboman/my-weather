@@ -13,11 +13,14 @@ const WeatherResults = props => {
   // console.log(farhenheit);
 
   return (
-    <div>
-      hello weather
-      <div className="city">
-        {name} the temperature is: {temp} in Kelvin {celsius} C and {farhenheit}
-        F.
+    <div key="weather01">
+      <div className="display_weather">
+        <div className="city">
+          <div className="name">{name} </div>
+          <div className="icon"> ICON </div>
+        </div>
+        <div className="temp">{celsius} C</div>
+        <div className="temp">{farhenheit} F</div>
       </div>
     </div>
   );

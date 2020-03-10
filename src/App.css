@@ -137,4 +137,39 @@ input[type=button], input[type=submit], input[type=reset] {
   }
 
 
+  /* Styling for Weather Results */
+
+  .display_weather {
+    display:flex;
+    height: 70px;
+    align-items: center;
+    background-color: rgb(49, 49, 49);
+
+  }
+
+  .city {
+    display:flex;
+    justify-content: space-between;
+    font-size: 3em;
+    padding: 0 5px;
+    width: 400px;
+    height: 60px;
+    background-color: var(--main-input-box-color);
+    border-radius: 5px;
+  }
+
+  .temp {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    width: 100px;
+    height: 60px;
+    background-color: var(--main-input-box-color);
+    border-radius: 5px;
+  }
+  
+  .icon {
+    align-items: right;
+  }
 
