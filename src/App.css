@@ -111,8 +111,6 @@ input[type=text] {
     width:100px;
   }
 
- 
-
   .narrow[type=text] {
     width: 50px;
   }
@@ -136,15 +134,15 @@ input[type=button], input[type=submit], input[type=reset] {
     cursor: pointer;
   }
 
-
-  /* Styling for Weather Results */
+/* ------------------------------------------------------------------------------*/
+/* -----------------------Styling for Weather Results----------------------------*/
+/* ------------------------------------------------------------------------------*/
 
   .display_weather {
     display:flex;
     height: 70px;
     align-items: center;
     background-color: rgb(49, 49, 49);
-
   }
 
   .city {
@@ -152,7 +150,7 @@ input[type=button], input[type=submit], input[type=reset] {
     justify-content: space-between;
     font-size: 3em;
     padding: 0 5px;
-    width: 400px;
+    width: 448px;
     height: 60px;
     background-color: var(--main-input-box-color);
     border-radius: 5px;
@@ -169,7 +167,61 @@ input[type=button], input[type=submit], input[type=reset] {
     border-radius: 5px;
   }
   
-  .icon {
+  /* .icon {
     align-items: right;
+  } */
+
+  .delete_this {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    width: 22px;
+    height: 60px;
+    background-color: var(--main-input-box-color);
+    border-radius: 5px;
   }
+
+
+  .icon {
+    width: 85px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .smalltype {
+    font-size: .6em;
+    /* line-height: -44px; */
+    margin-bottom: -7px;
+
+  }
+
+  .weather_sunny {
+    background: url('img/Weather_trans.png') no-repeat -7px -7px;
+	  width: 43px;
+	  height: 43px;
+  }
+
+  .weather_cloudy {
+    background: url('img/Weather_trans.png') no-repeat -59px -14px;
+    width: 58px;
+    height: 29px;
+  }
+
+  .weather_slightly_overcast {
+    background: url('img/Weather_trans.png') no-repeat -125px -9px;
+    width: 87px;
+    height: 39px;
+  }
+
+  .weather_overcast {
+    background: url('img/Weather_trans.png') no-repeat -222px -6px;
+    width: 67px;
+    height: 44px;
+  }
+
+ 
+
+
 

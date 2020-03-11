@@ -6,21 +6,22 @@ const WeatherResults = props => {
   const { temp } = props.results.list[0].main;
   const [celsius, farhenheit] = kelvin_convert(temp);
 
-  // console.log(props);
-  // console.log(name);
-  // console.log('this is temp: ', props.results.list[0].main.temp);
-  // console.log(celsius);
-  // console.log(farhenheit);
-
   return (
     <div key="weather01">
       <div className="display_weather">
         <div className="city">
           <div className="name">{name} </div>
-          <div className="icon"> ICON </div>
+          <div className="icon">
+            <div className="weather_sunny"> </div>
+          </div>
         </div>
-        <div className="temp">{celsius} C</div>
-        <div className="temp">{farhenheit} F</div>
+        <div className="temp">
+          {celsius} <span className="smalltype">C.</span>
+        </div>
+        <div className="temp">
+          {farhenheit} <span className="smalltype">F.</span>
+        </div>
+        <div className="delete_this">+</div>
       </div>
     </div>
   );
